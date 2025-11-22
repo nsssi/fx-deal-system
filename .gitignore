@@ -1,0 +1,24 @@
+# Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# Spring Boot
+*.pid
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker
+*.tar

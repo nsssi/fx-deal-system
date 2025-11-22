@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: fx_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: fx_deals_db
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  app:
+    build: .
+    container_name: fx_app
+    restart: on-failure
+    depends_on:
+      - mysql
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATASOURCE_URL: jdbc:mysql://fx_mysql:3306/fx_deals_db
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    ports:
+      - "8080:8080"
+
+volumes:
+  mysql_data:

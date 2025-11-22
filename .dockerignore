@@ -1,0 +1,12 @@
+target/
+.idea/
+.mvn/
+*.iml
+.git/
+.gitignore
+README.md
+docker-compose.yml
+Makefile
+postman/
+k6/
+*.md
